@@ -9,7 +9,7 @@ export const resultsSlice = createSlice({
   },
   reducers: {
     fetchStart: (state, payload) => {
-      state.term = payload
+      state.term = payload;
       state.searching = true;
       state.movies = [];
     },

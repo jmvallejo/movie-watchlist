@@ -1,10 +1,31 @@
 import React from 'react';
 import './Results.scss';
+import { useSelector } from 'react-redux';
+import { selectMovies, selectSearching } from '../slices/results';
 
 const Results = () => {
+  const searching = useSelector(selectSearching);
+  const movies = useSelector(selectMovies) || [];
+
   return (
     <section className='Results'>
-      <span>No results found.</span>
+      {searching && (
+        <span>Searching...</span>
+      )}
+      {!searching && !movies.length && (
+        <span>No results found</span>
+      )}
+      {!searching && !!movies.length && (
+        movies.map(movie => (
+          <div className='movie' key={movie.imdbID}>
+            <div className='poster' style={{ backgroundImage: `url(${movie.Poster})` }} />
+            <div className='info'>
+              <div className='title'>{movie.Title}</div>
+              <div className='year'>{movie.Year}</div>
+            </div>
+          </div>
+        ))
+      )}
     </section>
   );
 }

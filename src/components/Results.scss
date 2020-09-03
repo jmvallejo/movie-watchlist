@@ -1,10 +1,48 @@
 .Results {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   font-size: 1.6rem;
   padding: 3rem;
   max-width: 80rem;
+
+  .term {
+    font-weight: bold;
+  }
+
+  .movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    border-radius: 0.8rem;
+    width: 18rem;
+    margin: 0.8rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+
+    &:hover {
+      background: lightgrey;
+    }
+
+    .poster {
+      background-size: cover;
+      height: 24rem;
+    }
+
+    .info {
+      font-size: 1.2rem;
+      padding: 0.8rem;
+      .title {
+        font-weight: bold;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 }
