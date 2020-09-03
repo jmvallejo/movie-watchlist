@@ -1,0 +1,10 @@
+.Results {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+  padding: 3rem;
+  max-width: 80rem;
+}
