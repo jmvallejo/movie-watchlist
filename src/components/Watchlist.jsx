@@ -1,33 +1,27 @@
 import React from 'react';
 import './Watchlist.scss';
 import defaultPoster from '../img/defaultPoster.jpg';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectMovies } from '../selectors/watchlist';
+import { removeMovie } from '../actions/watchlist';
 
 const Watchlist = () => {
+  const movies = useSelector(selectMovies);
+  const dispatch = useDispatch();
+
   return (
     <section className='Watchlist'>
       <h1>My watch list</h1>
       <section className='movies'>
-        <div className='movie' title={`Remove The Lord of the Rings: The Fellowship of the Ring`}>
-          <div className='poster' style={{ backgroundImage: `url(${defaultPoster})` }} />
-          <div className='info'>
-            <div className='title'>{'The Lord of the Rings: The Fellowship of the Ring'}</div>
-            <div className='year'>{2020}</div>
+        {Object.values(movies).map(movie => (
+          <div className='movie' key={movie.imdbID} onClick={() => dispatch(removeMovie(movie.imdbID))} title={`Remove ${movie.Title}`}>
+            <div className='poster' style={{ backgroundImage: `url(${(movie.Poster !== 'N/A' && movie.Poster) || defaultPoster})` }} />
+            <div className='info'>
+              <div className='title'>{movie.Title}</div>
+              <div className='year'>{movie.Year}</div>
+            </div>
           </div>
-        </div>
-        <div className='movie'>
-          <div className='poster' style={{ backgroundImage: `url(${defaultPoster})` }} />
-          <div className='info'>
-            <div className='title'>{'My movie'}</div>
-            <div className='year'>{2020}</div>
-          </div>
-        </div>
-        <div className='movie'>
-          <div className='poster' style={{ backgroundImage: `url(${defaultPoster})` }} />
-          <div className='info'>
-            <div className='title'>{'My movie'}</div>
-            <div className='year'>{2020}</div>
-          </div>
-        </div>
+        ))}
       </section>
     </section>
   )
