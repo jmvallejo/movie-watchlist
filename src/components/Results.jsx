@@ -18,7 +18,7 @@ const Results = () => {
       )}
       {!searching && !!movies.length && (
         movies.map(movie => (
-          <div className='movie' key={movie.imdbID}>
+          <div className='movie' key={movie.imdbID} title={`Add ${movie.Title}`}>
             <div className='poster' style={{ backgroundImage: `url(${(movie.Poster !== 'N/A' && movie.Poster) || defaultPoster})` }} />
             <div className='info'>
               <div className='title'>{movie.Title}</div>
