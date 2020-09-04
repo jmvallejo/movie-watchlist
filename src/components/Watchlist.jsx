@@ -7,10 +7,10 @@ const Watchlist = () => {
     <section className='Watchlist'>
       <h1>My watch list</h1>
       <section className='movies'>
-        <div className='movie'>
+        <div className='movie' title={`Remove The Lord of the Rings: The Fellowship of the Ring`}>
           <div className='poster' style={{ backgroundImage: `url(${defaultPoster})` }} />
           <div className='info'>
-            <div className='title'>{'My movie'}</div>
+            <div className='title'>{'The Lord of the Rings: The Fellowship of the Ring'}</div>
             <div className='year'>{2020}</div>
           </div>
         </div>

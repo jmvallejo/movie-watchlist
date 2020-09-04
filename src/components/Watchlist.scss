@@ -32,6 +32,7 @@
       }
   
       .poster {
+        flex-shrink: 0;
         background-size: cover;
         background-position: center;
         height: 100%;
@@ -43,8 +44,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        flex-grow: 1;
         font-size: 1.2rem;
         padding: 0.8rem;
+        width: 10rem;
         
         .title {
           font-weight: bold;
