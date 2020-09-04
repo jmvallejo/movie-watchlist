@@ -6,9 +6,6 @@ import Results from './components/Results';
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Movie Watchlist</h1>
-      </header>
       <Search />
       <Results />
     </div>

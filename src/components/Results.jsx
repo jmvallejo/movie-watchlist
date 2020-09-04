@@ -1,5 +1,6 @@
 import React from 'react';
 import './Results.scss';
+import defaultPoster from '../img/defaultPoster.jpg';
 import { useSelector } from 'react-redux';
 import { selectMovies, selectSearching } from '../slices/results';
 
@@ -18,7 +19,7 @@ const Results = () => {
       {!searching && !!movies.length && (
         movies.map(movie => (
           <div className='movie' key={movie.imdbID}>
-            <div className='poster' style={{ backgroundImage: `url(${movie.Poster})` }} />
+            <div className='poster' style={{ backgroundImage: `url(${(movie.Poster !== 'N/A' && movie.Poster) || defaultPoster})` }} />
             <div className='info'>
               <div className='title'>{movie.Title}</div>
               <div className='year'>{movie.Year}</div>
