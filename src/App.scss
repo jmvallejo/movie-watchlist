@@ -1,6 +1,28 @@
 .App {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
+  height: 100vh;
+  overflow: hidden;
+
+  .leftColumn, .rightColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .leftColumn {
+    width: 24rem;
+    flex-shrink: 0;
+    background-color: #eeeeee;
+  }
+
+  .rightColumn {
+    flex-grow: 1;
+    box-shadow: -1px 0 2px 2px #ccc;
+  }
 }
