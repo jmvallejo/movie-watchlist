@@ -26,7 +26,7 @@ export const resultsSlice = createSlice({
 
 export const { fetchStart, fetchResponse, fetchError } = resultsSlice.actions;
 
-const API_BASE = 'http://www.omdbapi.com?';
+export const API_BASE = 'http://www.omdbapi.com?';
 export const search = term => dispatch => {
   dispatch(fetchStart(term));
   const params = new URLSearchParams({
